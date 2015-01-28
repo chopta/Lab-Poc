@@ -1,0 +1,5 @@
+D:\Sparq2\dev\POCs\StreamReader\StreamReader\bin\Debug\StreamReader.exe
+D:\Sparq2\dev\POCs\StreamReader\StreamReader\bin\Debug\StreamReader.pdb
+D:\Sparq2\dev\POCs\StreamReader\StreamReader\obj\x86\Debug\StreamReader.exe
+D:\Sparq2\dev\POCs\StreamReader\StreamReader\obj\x86\Debug\StreamReader.pdb
+D:\Sparq2\dev\POCs\StreamReader\StreamReader\obj\x86\Debug\StreamReader.csprojResolveAssemblyReference.cache
