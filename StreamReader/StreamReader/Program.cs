@@ -19,7 +19,10 @@ namespace StreamReader
 			//PartialLoadLargeFile();
 			//WhyUsingDispose();
 			//CreateLargeFileMb();
-			SocketMain();
+			//SocketMain();
+			//PingASite();
+			GetRandomNumber();
+			//NotRandom();
 			//Stream vs reader vs File vs Buffer vs start, end, flush, 
 			//Socket
 			//Ping
@@ -202,11 +205,27 @@ namespace StreamReader
 
 		static void PingASite()
 		{
+			var entry = Dns.GetHostEntry("www.google.com");
+			if (entry.AddressList.Length > 0)
+			{
+				IPAddress address = entry.AddressList.First();
+				var pingVar = new System.Net.NetworkInformation.Ping ();
+				var reply = pingVar.Send(address);
+
+				Console.WriteLine(reply.Status);
+			}
 		}
 
 		static void GetRandomNumber()
 		{
-
+			//simple random
+			var random = new Random(5);
+			for(var i =0; i < 10; i++)
+			{
+				Console.WriteLine(random.Next(0, 100));
+			}
+			Console.ReadKey();
+			//complex algorithm to calculate random RandomNumberGenerator
 		}
 
 		static void DirectoryBrowsing()
@@ -215,12 +234,48 @@ namespace StreamReader
 
 		static void MultiThreading()
 		{
-			
+			//https://msdn.microsoft.com/en-us/library/system.random.aspx
+			//http://www.codeproject.com/Articles/26148/Beginners-Guide-to-Threading-in-NET-Part-of-n
 		}
 
 		static void WebCrawler()
 		{
 			
+		}
+
+		static void ManipulateWithByte()
+		{
+			
+		}
+
+		static void NotRandom()
+		{
+			byte[] bytes1 = new byte[100];
+			byte[] bytes2 = new byte[100];
+			Random rnd1 = new Random();
+			Random rnd2 = new Random();
+
+			rnd1.NextBytes(bytes1);
+			rnd2.NextBytes(bytes2);
+
+			Console.WriteLine("First Series:");
+			for (int ctr = bytes1.GetLowerBound(0);
+				 ctr <= bytes1.GetUpperBound(0);
+				 ctr++)
+			{
+				Console.Write("{0, 5}", bytes1[ctr]);
+				if ((ctr + 1) % 10 == 0) Console.WriteLine();
+			}
+			Console.WriteLine();
+			Console.WriteLine("Second Series:");
+			for (int ctr = bytes2.GetLowerBound(0);
+				 ctr <= bytes2.GetUpperBound(0);
+				 ctr++)
+			{
+				Console.Write("{0, 5}", bytes2[ctr]);
+				if ((ctr + 1) % 10 == 0) Console.WriteLine();
+			}
+			Console.ReadKey();
 		}
 
 
